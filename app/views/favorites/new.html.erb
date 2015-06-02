@@ -41,14 +41,24 @@
               <%= select_tag(:beer_id, options_from_collection_for_select(Beer.all, :id, :name, @favorite.beer_id), :class => "form-control") %>
             </div>
           </div>
-
+           <!-- Label and input for catagory -->
+          <div class="form-group">
+            <label for="catagory" class="col-sm-2 control-label">
+              Catagory
+            </label>
+            <div class="col-sm-10">
+                <%= select_tag(:beer_id, options_from_collection_for_select(Beer.all, :id, :catagory, @favorite.catagory), :class => "form-control") %>
+              <!-- <input type="text" id="catagory" name="catagory" placeholder="Catagory" class="form-control" value="<%= @favorite.catagory %>"> -->
+            </div>
+          </div>
           <!-- Label and input for user_id -->
           <div class="form-group">
             <label for="user_id" class="col-sm-2 control-label">
               User
             </label>
             <div class="col-sm-10">
-              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @favorite.user_id %>">
+             <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username, @favorite.user_id), :class => "form-control") %>
+              <!-- <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @favorite.user_id %>"> -->
             </div>
           </div>
 
@@ -102,16 +112,7 @@
             </div>
           </div>
 
-          <!-- Label and input for catagory -->
-          <div class="form-group">
-            <label for="catagory" class="col-sm-2 control-label">
-              Catagory
-            </label>
-            <div class="col-sm-10">
-                <%= select_tag(:beer_id, options_from_collection_for_select(Beer.all, :id, :catagory, @favorite.catagory), :class => "form-control") %>
-              <!-- <input type="text" id="catagory" name="catagory" placeholder="Catagory" class="form-control" value="<%= @favorite.catagory %>"> -->
-            </div>
-          </div>
+         
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

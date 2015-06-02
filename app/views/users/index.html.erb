@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    Favorites
-    <a href="/favorites/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+    Users
+    <a href="/users/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
 
@@ -9,61 +9,35 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Favorites (start typing)" class="form-control">
+    <input type="text" id="quicksearch" placeholder="Search Users (start typing)" class="form-control">
   </div>
 </div>
 
 <hr>
 
 <div class="row isotope-container">
-<% @favorites.each do |favorite| %>
+<% @users.each do |user| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Favorite #<%= favorite.id %></h3>
+        <h3 class="panel-title">User #<%= user.id %></h3>
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Bar</dt>
-          <dd><%= favorite.bar_id %></dd>
-          
-          <dt>Beer</dt>
-          <dd><%= favorite.beer.name %></dd>
-          
-          <dt>Catagory</dt>
-          <dd><%= favorite.catagory %></dd>
-          
-          <dt>User</dt>
-          <dd><%= favorite.user.username %></dd>
-
-          <dt>Notes</dt>
-          <dd><%= favorite.notes %></dd>
-
-          <dt>Word1</dt>
-          <dd><%= favorite.word1 %></dd>
-
-          <dt>Word2</dt>
-          <dd><%= favorite.word2 %></dd>
-
-          <dt>Word3</dt>
-          <dd><%= favorite.word3 %></dd>
-
-          <dt>Photo</dt>
-          <dd><%= favorite.photo %></dd>
-
-
+          <dt>Username</dt>
+          <dd><%= user.username %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
-          <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">
+          <a href="/users/<%= user.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
           </a>
 
-          <a href="/favorites/<%= favorite.id %>/edit" class="btn btn-warning">
+          <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
 
-          <a href="/delete_favorite/<%= favorite.id %>" class="btn btn-danger" rel="nofollow">
+          <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
             <i class="fa fa-trash-o"></i>
           </a>
         </div>

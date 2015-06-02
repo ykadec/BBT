@@ -4,32 +4,26 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= @beer.name %></h3>
+        <h3 class="panel-title">User #<%= @user.id %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Production location</dt>
-              <dd><%= @beer.production_location %></dd>
-
-              <dt>Catagory</dt>
-              <dd><%= @beer.catagory %></dd>
-
-              <dt>Photo</dt>
-              <dd><%= @beer.photo %></dd>
+              <dt>Username</dt>
+              <dd><%= @user.username %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
-              <a href="/beers" class="btn btn-primary">
+              <a href="/users" class="btn btn-primary">
                 <i class="fa fa-chevron-left"></i>
               </a>
 
-              <a href="/beers/<%= @beer.id %>/edit" class="btn btn-warning">
+              <a href="/users/<%= @user.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
 
-              <a href="/delete_beer/<%= @beer.id %>" class="btn btn-danger" rel="nofollow">
+              <a href="/delete_user/<%= @user.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
             </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602191847) do
+ActiveRecord::Schema.define(version: 20150602210959) do
 
   create_table "beers", force: :cascade do |t|
     t.text     "production_location"
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 20150602191847) do
   end
 
   create_table "new_entries", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
