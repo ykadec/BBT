@@ -1,0 +1,131 @@
+<!-- Validation failure messages -->
+
+<% if @favorite.errors.any? %>
+  <% @favorite.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Favorite</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_favorite" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for bar_id -->
+          <div class="form-group">
+            <label for="bar_id" class="col-sm-2 control-label">
+              Bar
+            </label>
+            <div class="col-sm-10">
+              <%= select_tag(:bar_id, options_from_collection_for_select(Venue.all, :id, :name, @favorite.bar_id), :class => "form-control") %>
+            </div>
+          </div>
+
+          <!-- Label and input for beer_id -->
+          <div class="form-group">
+            <label for="beer_id" class="col-sm-2 control-label">
+              Beer
+            </label>
+            <div class="col-sm-10">
+              <%= select_tag(:beer_id, options_from_collection_for_select(Beer.all, :id, :name, @favorite.beer_id), :class => "form-control") %>
+            </div>
+          </div>
+
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+            <label for="user_id" class="col-sm-2 control-label">
+              User
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @favorite.user_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for notes -->
+          <div class="form-group">
+            <label for="notes" class="col-sm-2 control-label">
+              Notes
+            </label>
+            <div class="col-sm-10">
+              <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @favorite.notes %></textarea>
+            </div>
+          </div>
+
+          <!-- Label and input for word1 -->
+          <div class="form-group">
+            <label for="word1" class="col-sm-2 control-label">
+              Word1
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="word1" name="word1" placeholder="Word1" class="form-control" value="<%= @favorite.word1 %>">
+            </div>
+          </div>
+
+          <!-- Label and input for word2 -->
+          <div class="form-group">
+            <label for="word2" class="col-sm-2 control-label">
+              Word2
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="word2" name="word2" placeholder="Word2" class="form-control" value="<%= @favorite.word2 %>">
+            </div>
+          </div>
+
+          <!-- Label and input for word3 -->
+          <div class="form-group">
+            <label for="word3" class="col-sm-2 control-label">
+              Word3
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="word3" name="word3" placeholder="Word3" class="form-control" value="<%= @favorite.word3 %>">
+            </div>
+          </div>
+
+          <!-- Label and input for photo -->
+          <div class="form-group">
+            <label for="photo" class="col-sm-2 control-label">
+              Photo
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="<%= @favorite.photo %>">
+            </div>
+          </div>
+
+          <!-- Label and input for catagory -->
+          <div class="form-group">
+            <label for="catagory" class="col-sm-2 control-label">
+              Catagory
+            </label>
+            <div class="col-sm-10">
+                <%= select_tag(:beer_id, options_from_collection_for_select(Beer.all, :id, :catagory, @favorite.catagory), :class => "form-control") %>
+              <!-- <input type="text" id="catagory" name="catagory" placeholder="Catagory" class="form-control" value="<%= @favorite.catagory %>"> -->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Create Favorite
+              </button>
+              or
+              <a href="/favorites">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
