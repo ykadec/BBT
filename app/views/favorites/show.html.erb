@@ -14,13 +14,13 @@
               <dd><%= @favorite.bar_id %></dd>
 
               <dt>Beer</dt>
-              <dd><%= @favorite.beer_id %></dd>
+              <dd><%= @favorite.beer.name %></dd>
               
               <dt>Catagory</dt>
               <dd><%= @favorite.catagory %></dd>
 
               <dt>User</dt>
-              <dd><%= @favorite.user_id %></dd>
+              <dd><%= @favorite.user.username %></dd>
 
               <dt>Notes</dt>
               <dd><%= @favorite.notes %></dd>
@@ -35,7 +35,7 @@
               <dd><%= @favorite.word3 %></dd>
 
               <dt>Photo</dt>
-              <dd><%= @favorite.photo %></dd>
+              <dd><img src="<%= @favorite.photo %>" class="img-responsive"></dd>
 
              
 

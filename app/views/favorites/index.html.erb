@@ -20,16 +20,14 @@
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Favorite #<%= favorite.id %></h3>
+        <h3 class="panel-title"><%= favorite.beer.name %></h3>
       </div>
       <div class="panel-body">
         <dl>
           <dt>Bar</dt>
           <dd><%= favorite.bar_id %></dd>
-          
-          <dt>Beer</dt>
-          <dd><%= favorite.beer.name %></dd>
-          
+        
+      
           <dt>Catagory</dt>
           <dd><%= favorite.catagory %></dd>
           
@@ -49,7 +47,7 @@
           <dd><%= favorite.word3 %></dd>
 
           <dt>Photo</dt>
-          <dd><%= favorite.photo %></dd>
+          <dd><img src="<%= favorite.photo %>" class="img-responsive"></dd>
 
 
 

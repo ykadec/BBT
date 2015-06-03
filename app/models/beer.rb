@@ -3,4 +3,7 @@ class Beer < ActiveRecord::Base
 
 	validates :name, :presence => true
 	has_many :favorites
+
+	mount_uploader :photo, PhotoUploader
+
 end
