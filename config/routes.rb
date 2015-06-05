@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-   root 'favorites#index'
+  devise_for :users
+  root 'favorites#index'
 
   # Routes for the User resource:
   # CREATE

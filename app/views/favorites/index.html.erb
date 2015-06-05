@@ -17,57 +17,60 @@
 
 <div class="row isotope-container">
 <% @favorites.each do |favorite| %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= favorite.beer.name %></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt>Bar</dt>
-          <dd><%= favorite.bar_id %></dd>
-        
-      
-          <dt>Catagory</dt>
-          <dd><%= favorite.catagory %></dd>
+  <% if favorite.user_id == current_user.id %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= favorite.beer.name %></h3>
+          </div>
+          <div class="panel-body">
+            <dl>
+              <dt>Bar</dt>
+              <dd><%= favorite.bar_id %></dd>
+            
           
-          <dt>User</dt>
-          <dd><%= favorite.user.username %></dd>
+              <dt>Catagory</dt>
+              <dd><%= favorite.catagory %></dd>
+              
+              <dt>User</dt>
+              <dd><%= favorite.user.username %></dd>
 
-          <dt>Notes</dt>
-          <dd><%= favorite.notes %></dd>
+              <dt>Notes</dt>
+              <dd><%= favorite.notes %></dd>
 
-          <dt>Word1</dt>
-          <dd><%= favorite.word1 %></dd>
+              <dt>Word1</dt>
+              <dd><%= favorite.word1 %></dd>
 
-          <dt>Word2</dt>
-          <dd><%= favorite.word2 %></dd>
+              <dt>Word2</dt>
+              <dd><%= favorite.word2 %></dd>
 
-          <dt>Word3</dt>
-          <dd><%= favorite.word3 %></dd>
+              <dt>Word3</dt>
+              <dd><%= favorite.word3 %></dd>
 
-          <dt>Photo</dt>
-          <dd><img src="<%= favorite.photo %>" class="img-responsive"></dd>
+              <dt>Photo</dt>
+              <dd><img src="<%= favorite.photo %>" class="img-responsive"></dd>
 
 
 
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/favorites/<%= favorite.id %>" class="btn btn-primary">
+                <i class="fa fa-search-plus"></i>
+              </a>
+              <% if (favorite.user_id == current_user.id) %>
+                <a href="/favorites/<%= favorite.id %>/edit" class="btn btn-warning">
+                  <i class="fa fa-edit"></i>
+                </a>
+              <% end %>
 
-          <a href="/favorites/<%= favorite.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-
-          <a href="/delete_favorite/<%= favorite.id %>" class="btn btn-danger" rel="nofollow">
-            <i class="fa fa-trash-o"></i>
-          </a>
+              <a href="/delete_favorite/<%= favorite.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+  <% end %>
 <% end %>
 </div>
 

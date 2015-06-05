@@ -1,4 +1,14 @@
 class FavoritesController < ApplicationController
+     before_action :check_if_owner, only: [:edit, :update, :destroy]
+
+   def check_if_owner
+     favorite = Favorite.find(params[:id])
+     if favorite.user_id != current_user.id
+        redirect_to "/favorites", notice: "Nope! That's not yours"
+      end
+   end
+
+
   def index
     @favorites = Favorite.all
   end
@@ -15,7 +25,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new
     @favorite.bar_id = params[:bar_id]
     @favorite.beer_id = params[:beer_id]
-    @favorite.user_id = params[:user_id]
+    @favorite.user_id = current_user.id
     @favorite.notes = params[:notes]
     @favorite.word1 = params[:word1]
     @favorite.word2 = params[:word2]
@@ -39,7 +49,7 @@ class FavoritesController < ApplicationController
 
     @favorite.bar_id = params[:bar_id]
     @favorite.beer_id = params[:beer_id]
-    @favorite.user_id = params[:user_id]
+    @favorite.user_id = current_user.id
     @favorite.notes = params[:notes]
     @favorite.word1 = params[:word1]
     @favorite.word2 = params[:word2]
