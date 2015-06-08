@@ -17,42 +17,40 @@
 
 <div class="row isotope-container">
 <% @beers.each do |beer| %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= beer.name %></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt>Production location</dt>
-          <dd><%= beer.production_location %></dd>
+  <% if beer.name != "---Other---" %>
 
-          <dt>Catagory</dt>
-          <dd><%= beer.catagory %></dd>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= beer.name %></h3>
+        </div>
+        <div class="panel-body">
+          <dl>
+            <dt>Production location</dt>
+            <dd><%= beer.production_location %></dd>
 
-          <dt>Photo</dt>
-          <dd><img src="<%= beer.photo %>" class="img-responsive"></dd>
+            <dt>Catagory</dt>
+            <dd><%= beer.catagory %></dd>
 
-<!--           <dt>Name</dt>
-          <dd><%= beer.name %></dd> -->
+            <dd><img src="<%= beer.photo %>" class="img-responsive beer_image"></dd>
+          </dl>
+          <div class="btn-group btn-group-justified">
+            <a href="/beers/<%= beer.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
 
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <a href="/beers/<%= beer.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
+            <a href="/beers/<%= beer.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
 
-          <a href="/beers/<%= beer.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-
-          <a href="/delete_beer/<%= beer.id %>" class="btn btn-danger" rel="nofollow">
-            <i class="fa fa-trash-o"></i>
-          </a>
+            <a href="/delete_beer/<%= beer.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 </div>
 

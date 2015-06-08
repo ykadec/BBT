@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   devise_for :users
-  root 'favorites#index'
+  root 'welcome#index'
+  # root 'favorites#index'
 
   # Routes for the User resource:
   # CREATE
