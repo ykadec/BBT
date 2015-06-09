@@ -3,5 +3,5 @@ class Venue < ActiveRecord::Base
 
 	validates :name, :presence => true
 	has_many :favorites
-	has_many :beers
+	has_many :beers,
 end

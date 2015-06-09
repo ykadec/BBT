@@ -37,7 +37,15 @@
         </div>
       </div>
     </div>
+    <ul class="list-group">
+      <% @beer.favorites.each do |favorite| %>
+        <li class="list-group-item"><%= favorite.word1 %></li>
+        <li class="list-group-item"><%= favorite.word2 %></li>
+        <li class="list-group-item"><%= favorite.word3 %></li>
+      <% end %>
+    </ul>
   </div>
+
 </div>
 
 <!-- End responsive panel example -->

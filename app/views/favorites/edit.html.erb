@@ -15,7 +15,7 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Edit Favorite #<%= @favorite.id %></h3>
+        <h3 class="panel-title">Edit Favorite <%= @favorite.beer.name %></h3>
       </div>
       <div class="panel-body">
         <form action="/update_favorite/<%= @favorite.id %>" method="post" class="form-horizontal">
@@ -28,7 +28,10 @@
               Bar
             </label>
             <div class="col-sm-10">
-              <input type="text" id="bar_id" name="bar_id" placeholder="Bar" class="form-control" value="<%= @favorite.bar_id %>">
+              <%= select_tag(:bar_id, options_from_collection_for_select(Venue.all, :id, :name, @favorite.bar_id), :class => "form-control") %>
+              <p class="help-block">
+                 <a href="/venues/new">or create a new one</a>
+              </p>    
             </div>
           </div>
 
@@ -38,17 +41,10 @@
               Beer
             </label>
             <div class="col-sm-10">
-              <input type="text" id="beer_id" name="beer_id" placeholder="Beer" class="form-control" value="<%= @favorite.beer_id %>">
-            </div>
-          </div>
-
-          <!-- Label and input for user_id -->
-          <div class="form-group">
-            <label for="user_id" class="col-sm-2 control-label">
-              User
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @favorite.user_id %>">
+              <%= select_tag(:beer_id, options_from_collection_for_select(Beer.all, :id, :name, @favorite.beer_id), :class => "form-control") %>
+              <p class="help-block">
+                <a href="/beers/new">or create a new one</a>
+              </p>
             </div>
           </div>
 
@@ -89,26 +85,6 @@
             </label>
             <div class="col-sm-10">
               <input type="text" id="word3" name="word3" placeholder="Word3" class="form-control" value="<%= @favorite.word3 %>">
-            </div>
-          </div>
-
-          <!-- Label and input for photo -->
-          <div class="form-group">
-            <label for="photo" class="col-sm-2 control-label">
-              Photo
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="<%= @favorite.photo %>">
-            </div>
-          </div>
-
-          <!-- Label and input for catagory -->
-          <div class="form-group">
-            <label for="catagory" class="col-sm-2 control-label">
-              Catagory
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="catagory" name="catagory" placeholder="Catagory" class="form-control" value="<%= @favorite.catagory %>">
             </div>
           </div>
 

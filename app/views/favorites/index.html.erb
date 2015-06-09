@@ -26,15 +26,12 @@
           <div class="panel-body">
             <dl>
               <dt>Bar</dt>
-              <dd><%= favorite.bar_id %></dd>
+              <dd><%= favorite.venue.name %></dd>
             
           
               <dt>Catagory</dt>
               <dd><%= favorite.beer.catagory %></dd>
               
-              <dt>User</dt>
-              <dd><%= favorite.user.username %></dd>
-
               <dt>Notes</dt>
               <dd><%= favorite.notes %></dd>
 
@@ -48,7 +45,7 @@
               <dd><%= favorite.word3 %></dd>
 
               <dt>Photo</dt>
-              <dd><img src="<%= favorite.beer.photo %>" class="img-responsive"></dd>
+              <dd><img src="<%= favorite.beer.photo %>" height="250" class="center-block"></dd>
 
 
 
