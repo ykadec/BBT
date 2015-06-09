@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :installs
   get 'welcome/index'
 
   devise_for :users
