@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
   # root 'favorites#index'
 
+  get "/searchword", :controller=> "welcome", :action => "search_word" 
+  get "/searchcatagory", :controller=> "welcome", :action => "search_catagory" 
+
   # Routes for the User resource:
   # CREATE
   get "/users/new", :controller => "users", :action => "new"

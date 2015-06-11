@@ -15,7 +15,7 @@ class VenuesController < ApplicationController
     @venue = Venue.new
     @venue.name = params[:name]
     @venue.address = params[:address]
-    @venue.on_tap = params[:on_tap]
+    @venue.beer_id = params[:beer_id]
 
     if @venue.save
       redirect_to "/venues", :notice => "Venue created successfully."
@@ -33,7 +33,7 @@ class VenuesController < ApplicationController
 
     @venue.name = params[:name]
     @venue.address = params[:address]
-    @venue.on_tap = params[:on_tap]
+    @venue.beer_id = params[:beer_id]
 
     if @venue.save
       redirect_to "/venues", :notice => "Venue updated successfully."

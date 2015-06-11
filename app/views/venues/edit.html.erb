@@ -15,7 +15,7 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Edit Venue #<%= @venue.id %></h3>
+        <h3 class="panel-title">Edit <%= @venue.name %></h3>
       </div>
       <div class="panel-body">
         <form action="/update_venue/<%= @venue.id %>" method="post" class="form-horizontal">
@@ -44,11 +44,11 @@
 
           <!-- Label and input for on_tap -->
           <div class="form-group">
-            <label for="on_tap" class="col-sm-2 control-label">
+            <label for="beer_id" class="col-sm-2 control-label">
               On tap
             </label>
             <div class="col-sm-10">
-              <%= select_tag(:on_tap, options_from_collection_for_select(Beer.all, :id, :name, @venue.on_tap), :class => "form-control") %>
+              <%= select_tag(:beer_id, options_from_collection_for_select(Beer.all, :id, :name, @venue.beer_id), :class => "form-control") %>
               <p class="help-block">
                 <a href="/beers/new">or create a new one</a>
               </p>
